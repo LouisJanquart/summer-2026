@@ -67,6 +67,7 @@
 }
 
 .hero__meta {
+  inline-size: 100%;
   text-align: right;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -176,7 +177,6 @@
   background: rgba(255, 90, 31, 0.12);
   border-color: var(--color-accent);
 }
-
 
 /* --- Groupe de boutons --- */
 .btn-group {
