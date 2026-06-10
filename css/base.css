@@ -17,6 +17,19 @@
   --color-text-dim:   #8a8a8a;
   --color-text-faint: #6a6a6a;
 
+  /* Surfaces supplémentaires */
+  --color-surface-3:  #0e0e0e;
+  --color-surface-4:  #161616;
+  --color-border-3:   #2e2e2e;
+  --color-border-4:   #262626;
+
+  /* Pass (skin ticket) */
+  --color-pass-bg:      #e9e3d6;
+  --color-pass-text:    #1a1a1a;
+  --color-pass-accent:  #c2410c;
+  --color-pass-muted:   #555555;
+  --color-pass-faint:   #888888;
+
   /* Typographie */
   --font-display:  'Archivo Black', sans-serif;
   --font-body:     'Space Grotesk', sans-serif;
@@ -34,7 +47,6 @@
   --pad-x: clamp(20px, 5vw, 72px);
 
   /* Carte */
-  --card-radius:      0px;
   --card-height:      524px;
   --card-min-width:   330px;
   --card-gap:         22px;

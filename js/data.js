@@ -485,3 +485,5 @@ const DATA = [
     image: "images/shrek-rave.jpg",
   },
 ];
+
+export { DATA };

@@ -60,7 +60,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   flex-shrink: 0;
-  background: #0e0e0e;
+  background: var(--color-surface-3);
   overflow: hidden;
 }
 
@@ -74,12 +74,6 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 4px 9px;
-  text-transform: uppercase;
 }
 
 .card-brut__body {
@@ -125,7 +119,7 @@
   font-size: 10px;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
-  border: 1px solid #2e2e2e;
+  border: 1px solid var(--color-border-3);
   padding: 3px 8px;
   text-transform: uppercase;
 }
@@ -142,7 +136,7 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-top: 1px solid #222;
+  border-top: 1px solid var(--color-border-3);
   padding-top: 11px;
   margin-top: 3px;
 }
@@ -171,7 +165,7 @@
   aspect-ratio: 4 / 5;
   flex-shrink: 0;
   overflow: hidden;
-  background: #0e0e0e;
+  background: var(--color-surface-3);
 }
 
 .card-affiche__media img {
@@ -196,12 +190,6 @@
   position: absolute;
   top: 13px;
   right: 13px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 4px 9px;
-  text-transform: uppercase;
 }
 
 .card-affiche__caption {
@@ -263,8 +251,8 @@
 .card-pass {
   position: absolute;
   inset: 0;
-  background: #e9e3d6;
-  color: #1a1a1a;
+  background: var(--color-pass-bg);
+  color: var(--color-pass-text);
   display: flex;
   flex-direction: column;
   font-family: var(--font-mono);
@@ -281,15 +269,11 @@
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #1a1a1a;
+  color: var(--color-pass-text);
 }
 
 .card-pass__badge {
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  padding: 4px 9px;
-  text-transform: uppercase;
 }
 
 .card-pass__media {
@@ -298,7 +282,7 @@
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid rgba(26, 26, 26, 0.25);
-  background: #0e0e0e;
+  background: var(--color-surface-3);
 }
 
 .card-pass__media img {
@@ -318,7 +302,7 @@
 .card-pass__date {
   font-size: 11px;
   letter-spacing: 0.04em;
-  color: #c2410c;
+  color: var(--color-pass-accent);
   text-transform: uppercase;
 }
 
@@ -327,12 +311,12 @@
   font-size: 18px;
   line-height: 1.05;
   text-transform: uppercase;
-  color: #161616;
+  color: var(--color-pass-text);
 }
 
 .card-pass__venue {
   font-size: 11px;
-  color: #555;
+  color: var(--color-pass-muted);
 }
 
 .card-pass__spacer { flex: 1; }
@@ -385,27 +369,27 @@
 .card-pass__admit {
   font-size: 9px;
   letter-spacing: 0.12em;
-  color: #888;
+  color: var(--color-pass-faint);
   text-transform: uppercase;
 }
 
 .card-pass__serial {
   font-size: 10px;
   letter-spacing: 0.06em;
-  color: #1a1a1a;
+  color: var(--color-pass-text);
   margin-top: 2px;
 }
 
 .card-pass__price {
   font-family: var(--font-display);
   font-size: 16px;
-  color: #161616;
+  color: var(--color-pass-text);
 }
 
 .card-pass__hint {
   font-size: 9px;
   letter-spacing: 0.1em;
-  color: #c2410c;
+  color: var(--color-pass-accent);
   text-transform: uppercase;
   text-align: center;
 }
@@ -493,7 +477,7 @@
   letter-spacing: 0.18em;
   color: var(--color-text-faint);
   text-transform: uppercase;
-  border-top: 1px solid #262626;
+  border-top: 1px solid var(--color-border-4);
   padding-top: 13px;
   margin-bottom: 10px;
 }
@@ -528,7 +512,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  border-top: 1px solid #262626;
+  border-top: 1px solid var(--color-border-4);
   padding-top: 14px;
 }
 
@@ -599,4 +583,26 @@
   letter-spacing: 0.16em;
   color: #5a5a5a;
   text-transform: uppercase;
+}
+
+/* --- Badge countdown (base + modificateurs) --- */
+.card-brut__badge,
+.card-affiche__badge,
+.card-pass__badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  text-transform: uppercase;
+}
+
+.card__badge--upcoming {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.card__badge--past {
+  background: #2a2a2a;
+  color: #aaa;
 }

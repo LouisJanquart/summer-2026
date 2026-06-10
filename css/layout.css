@@ -177,6 +177,19 @@
   border-color: var(--color-accent);
 }
 
+
+/* --- Groupe de boutons --- */
+.btn-group {
+  display: flex;
+}
+
+/* --- Liste de chips --- */
+.chips__list {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
 /* --- Groupes --- */
 .group {
   margin-bottom: 46px;

@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Été 2026 — Mon agenda</title>
+  <meta name="description" content="Mon agenda personnel de concerts, open airs et raves pour l'été 2026 — Bruxelles, Gand, Knokke et alentours.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎛️</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -14,8 +16,8 @@
 <body>
 
   <header class="hero">
-    <img class="hero__img" src="images/hero-crowd.jpg" alt="Festival">
-    <div class="hero__overlay"></div>
+    <img class="hero__img" src="images/hero-crowd.jpg" alt="Festival Été 2026" width="2000" height="1333" fetchpriority="high">
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__content">
       <div>
         <p class="hero__eyebrow">● Mon agenda · concerts · open air · raves</p>
@@ -30,32 +32,32 @@
   </header>
 
   <main class="page">
+
     <div class="controls">
       <div class="controls__group">
-        <span class="controls__label">Trier</span>
-        <div id="sort-btns" style="display:flex;"></div>
+        <span class="controls__label" id="label-sort">Trier</span>
+        <div class="btn-group" id="sort-btns" role="group" aria-labelledby="label-sort"></div>
       </div>
       <div class="controls__group">
-        <span class="controls__label">Carte</span>
-        <div id="skin-btns" style="display:flex;"></div>
+        <span class="controls__label" id="label-skin">Carte</span>
+        <div class="btn-group" id="skin-btns" role="group" aria-labelledby="label-skin"></div>
       </div>
     </div>
 
-    <div class="chips">
+    <nav class="chips" aria-label="Filtrer par style">
       <span class="controls__label">Styles</span>
-      <div id="style-chips" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
-    </div>
+      <div class="chips__list" id="style-chips"></div>
+    </nav>
 
     <div id="groups-container"></div>
-    <p id="empty-msg" class="empty-msg">
+
+    <p id="empty-msg" class="empty-msg" aria-live="polite">
       Aucun événement pour ce filtre.
       <span class="empty-msg__accent">Réinitialise les styles.</span>
     </p>
+
   </main>
 
-  <script src="js/data.js"></script>
-  <script src="js/compute.js"></script>
-  <script src="js/card.js"></script>
-  <script src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
