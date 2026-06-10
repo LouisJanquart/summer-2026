@@ -1,0 +1,235 @@
+/* ============================================================
+   LAYOUT — hero, controls, grille d'événements
+   ============================================================ */
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  height: clamp(300px, 42vw, 420px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--color-border-2);
+}
+
+.hero__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.97) 2%,
+    rgba(10, 10, 10, 0.78) 30%,
+    rgba(10, 10, 10, 0.45) 60%,
+    rgba(10, 10, 10, 0.55) 100%
+  );
+}
+
+.hero__content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 var(--pad-x) 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  color: var(--color-accent-2);
+  text-transform: uppercase;
+  margin-bottom: 26px;
+  text-shadow:
+    0 1px 10px rgba(0, 0, 0, 0.95),
+    0 0 2px rgba(0, 0, 0, 0.9);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(54px, 11vw, 128px);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero__meta {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.95;
+}
+
+.hero__meta-count {
+  color: var(--color-text);
+  font-size: 20px;
+  font-family: var(--font-display);
+}
+
+.hero__meta-hint {
+  color: var(--color-accent);
+}
+
+/* --- Page wrapper --- */
+.page {
+  padding: 30px var(--pad-x) 110px;
+}
+
+/* --- Controls --- */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  margin-bottom: var(--space-md);
+}
+
+.controls__group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.controls__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+}
+
+/* --- Boutons segment (Trier / Carte) --- */
+.btn-seg {
+  padding: 7px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  margin-left: -1px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    color 0.15s;
+}
+
+.btn-seg:hover {
+  border-color: #555;
+}
+
+.btn-seg--active {
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+/* --- Chips de style --- */
+.chips {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.btn-chip {
+  padding: 6px 12px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--color-text-dim);
+  background: transparent;
+  border: 1px solid #262626;
+  border-radius: 999px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    color 0.15s;
+}
+
+.btn-chip:hover {
+  border-color: #555;
+}
+
+.btn-chip--active {
+  color: var(--color-accent);
+  background: rgba(255, 90, 31, 0.12);
+  border-color: var(--color-accent);
+}
+
+/* --- Groupes --- */
+.group {
+  margin-bottom: 46px;
+}
+
+.group__header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.group__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.group__divider {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border-2);
+}
+
+.group__count {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-faint);
+}
+
+/* --- Grille de cartes --- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+  gap: var(--card-gap);
+}
+
+/* --- Message vide --- */
+.empty-msg {
+  display: none;
+  text-align: center;
+  padding: 80px 0;
+  font-family: var(--font-mono);
+  color: var(--color-text-faint);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.empty-msg--visible {
+  display: block;
+}
+
+.empty-msg__accent {
+  color: var(--color-accent);
+}

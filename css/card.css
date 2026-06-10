@@ -1,0 +1,602 @@
+/* ============================================================
+   CARD — flip, face avant (3 skins), face arrière
+   ============================================================ */
+
+/* --- Wrapper perspective --- */
+.card {
+  perspective: 1700px;
+  height: var(--card-height);
+}
+
+/* --- Inner rotatif --- */
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform var(--card-flip-speed) cubic-bezier(0.2, 0.7, 0.2, 1);
+  cursor: pointer;
+}
+
+.card__inner--flipped {
+  transform: rotateY(180deg);
+}
+
+/* --- Faces communes --- */
+.card__front,
+.card__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* --- Face avant --- */
+.card__front {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Face arrière --- */
+.card__back {
+  transform: rotateY(180deg);
+  background: var(--color-surface-2);
+  border: 1px solid rgba(255, 90, 31, 0.2);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+/* ============================================================
+   SKIN : BRUT (image 16/9 + infos en dessous)
+   ============================================================ */
+
+.card-brut__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  background: #0e0e0e;
+  overflow: hidden;
+}
+
+.card-brut__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-brut__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  text-transform: uppercase;
+}
+
+.card-brut__body {
+  flex: 1;
+  padding: 15px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  overflow: hidden;
+}
+
+.card-brut__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.card-brut__title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.05;
+  margin-top: 1px;
+  text-transform: uppercase;
+}
+
+.card-brut__by {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-dim);
+}
+
+.card-brut__styles {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 1px;
+}
+
+.card-brut__style-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+  border: 1px solid #2e2e2e;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.card-brut__spacer { flex: 1; }
+
+.card-brut__venue {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.card-brut__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid #222;
+  padding-top: 11px;
+  margin-top: 3px;
+}
+
+.card-brut__price {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+.card-brut__cta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   SKIN : AFFICHE (image 4/5 + overlay texte)
+   ============================================================ */
+
+.card-affiche__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #0e0e0e;
+}
+
+.card-affiche__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-affiche__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92)  0%,
+    rgba(0, 0, 0, 0.45)  26%,
+    rgba(0, 0, 0, 0)     50%,
+    rgba(0, 0, 0, 0.28)  100%
+  );
+}
+
+.card-affiche__badge {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  text-transform: uppercase;
+}
+
+.card-affiche__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 15px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-affiche__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.card-affiche__title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  line-height: 1.0;
+  text-transform: uppercase;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7);
+}
+
+.card-affiche__footer {
+  flex: 1;
+  padding: 0 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-affiche__venue {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-affiche__price {
+  font-family: var(--font-display);
+  font-size: 15px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   SKIN : PASS (style ticket physique)
+   ============================================================ */
+
+.card-pass {
+  position: absolute;
+  inset: 0;
+  background: #e9e3d6;
+  color: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+}
+
+.card-pass__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px 10px;
+}
+
+.card-pass__label {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+}
+
+.card-pass__badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  text-transform: uppercase;
+}
+
+.card-pass__media {
+  margin: 0 15px;
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(26, 26, 26, 0.25);
+  background: #0e0e0e;
+}
+
+.card-pass__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-pass__body {
+  padding: 13px 15px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.card-pass__date {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #c2410c;
+  text-transform: uppercase;
+}
+
+.card-pass__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: #161616;
+}
+
+.card-pass__venue {
+  font-size: 11px;
+  color: #555;
+}
+
+.card-pass__spacer { flex: 1; }
+
+.card-pass__tear {
+  position: relative;
+  height: 0;
+  border-top: 1.5px dashed rgba(26, 26, 26, 0.4);
+  margin: 8px 0;
+}
+
+.card-pass__tear::before,
+.card-pass__tear::after {
+  content: '';
+  position: absolute;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+.card-pass__tear::before { left: -9px; }
+.card-pass__tear::after  { right: -9px; }
+
+.card-pass__footer {
+  padding: 12px 15px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.card-pass__barcode {
+  height: 38px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1a1a1a 0 2px, transparent 2px 4px,
+    #1a1a1a 4px 5px, transparent 5px 9px,
+    #1a1a1a 9px 12px, transparent 12px 13px,
+    #1a1a1a 13px 14px, transparent 14px 17px
+  );
+}
+
+.card-pass__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-pass__admit {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.card-pass__serial {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: #1a1a1a;
+  margin-top: 2px;
+}
+
+.card-pass__price {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: #161616;
+}
+
+.card-pass__hint {
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: #c2410c;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ============================================================
+   FACE ARRIÈRE (commune aux 3 skins)
+   ============================================================ */
+
+.card-back__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.card-back__tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.card-back__close {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+}
+
+.card-back__title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.05;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.card-back__by {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-dim);
+  margin-bottom: 15px;
+}
+
+.card-back__details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-bottom: 15px;
+}
+
+.card-back__detail-row {
+  display: flex;
+  gap: 9px;
+}
+
+.card-back__detail-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.card-back__detail-address {
+  color: #9a9a9a;
+}
+
+.card-back__text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 11px;
+  margin-bottom: 15px;
+}
+
+.card-back__lineup-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  border-top: 1px solid #262626;
+  padding-top: 13px;
+  margin-bottom: 10px;
+}
+
+.card-back__lineup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+.card-back__artist {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #ededed;
+  border-bottom: 1px solid var(--color-border-2);
+  padding-bottom: 5px;
+}
+
+.card-back__no-lineup {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #5a5a5a;
+  margin-bottom: 14px;
+}
+
+.card-back__spacer { flex: 1; min-height: 10px; }
+
+.card-back__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #262626;
+  padding-top: 14px;
+}
+
+.card-back__price-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.card-back__price-value {
+  font-family: var(--font-display);
+  font-size: 17px;
+  color: var(--color-text);
+}
+
+.card-back__ticket-btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 8px 13px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+
+.card-back__ticket-btn:hover { opacity: 0.85; }
+
+.card-back__ticket-soon {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--color-text-faint);
+  border: 1px solid #333;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.card-back__return {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: #5a5a5a;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* --- Placeholder image manquante --- */
+.card__no-image {
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(45deg, #161616 0 11px, #1c1c1c 11px 22px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__no-image span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #5a5a5a;
+  text-transform: uppercase;
+}
