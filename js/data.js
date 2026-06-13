@@ -509,6 +509,25 @@ const DATA = [
     text: "Une soirée faite par et pour les transpédégouines. Dress code : LOBOTOMIE",
     image: "images/lobotomie.jpeg",
   },
+
+  {
+    id: "tiesto",
+    title: "Hangar invites Tiësto — Atomium Open Air",
+    by: "Hangar",
+    date: "2026-07-31",
+    timeStart: "15:00",
+    timeEnd: "00:00",
+    venue: "Atomium",
+    city: "Bruxelles",
+    address: "Place de l'Atomium 1, 1020 Bruxelles",
+    price: 67.5,
+    styles: [],
+    lineup: ["Tiësto"],
+    ticketUrl:
+      "https://l.facebook.com/l.php?u=http%3A%2F%2Ftickets.thehangar.be%2F%3Ffbclid%3DIwZXh0bgNhZW0CMTAAYnJpZBExYm1xTXVqZ2hGV0s3ZTRHZ3NydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4BKYz9qkGLxRQJqdiimgz6Yiq751NHDnjKYvD2xe3X4kxW7zTxk7bJSHLObA_aem_0SZ944IZzHnAate3-EkOAw&h=AUCmYAckmdl-KRYs2cFaT_4XHb3La2QRNmL_YJWTrmPOhYzQNEeZzZhzx_DGGscmqlwkHIVsJnm6VbMrCD0om7UwRQr7nfrkq-PxUixfoHTF8Wvu8M9rSsiLmYesXpEZdi_0N40esd7KohJ7WrFE_BpuDslBjFIjjC33wA&__tn__=q&c[0]=AUCPRlpIcIpsJ4OI5XUxmWLX4N5EvfKn3cPAGVTjL2LikxSVPLDJGNU-FLGSG0239jm0GQ1uTJt5FZ29SpiVC2EVTjk2MIrCcvEhFW_TouIF36uOf7iHBna2P6HeTsMq00EpnhHrH5bAkJ_dabiFSPyd0c-QuLfOXaM",
+    text: "Tiësto returns for a first solo show in over a decade in Brussels, marking a rare and defining moment in his career.",
+    image: "images/tiesto.jpg",
+  },
 ];
 
 export { DATA };
