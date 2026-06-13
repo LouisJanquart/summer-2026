@@ -484,6 +484,31 @@ const DATA = [
     text: "Dress code : vert ou ton perso Shrek préféré. Shrek DJ set, visuals & singalongs.",
     image: "images/shrek-rave.jpg",
   },
+
+  {
+    id: "lobotomie",
+    title: "Lobotomie",
+    by: "Shrek Rave",
+    date: "2026-11-26",
+    timeStart: "20:30",
+    timeEnd: "05:00",
+    venue: "Nashaz",
+    city: "Bruxelles",
+    address: "Rue Picard 3, 1000 Bruxelles",
+    price: 0.0,
+    styles: [],
+    lineup: [
+      "WC",
+      "Droiture",
+      "Sinusite",
+      "DJ Shyddavis & Hotoliver",
+      "DJ Froggy69",
+      "KK slaughter",
+    ],
+    ticketUrl: "",
+    text: "Une soirée faite par et pour les transpédégouines. Dress code : LOBOTOMIE",
+    image: "images/lobotomie.jpeg",
+  },
 ];
 
 export { DATA };
