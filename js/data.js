@@ -488,7 +488,7 @@ const DATA = [
   {
     id: "lobotomie",
     title: "Lobotomie",
-    by: "Shrek Rave",
+    by: "",
     date: "2026-11-26",
     timeStart: "20:30",
     timeEnd: "05:00",
