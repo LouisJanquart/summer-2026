@@ -594,7 +594,7 @@ const DATA = [
     city: "Grimbergen",
     address: "Warandestraat 100, 1851 Grimbergen",
     price: null,
-    styles: ["Electro"],
+    styles: ["Électro"],
     ticketUrl: "https://tickets.voodoovillage.be/",
     lineup: [],
     text: "Festival électronique en pleine nature, scènes déguisées. Repéré sur Facebook (Intéressé·e).",

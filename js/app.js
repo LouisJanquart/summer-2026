@@ -24,7 +24,7 @@ function setPick(id, value) {
   if (state.picks[id] === value) delete state.picks[id];
   else state.picks[id] = value;
   savePicks(state.picks);
-  render();
+  render({ scroll: false });
 }
 
 // --- Utilitaires ---
@@ -54,10 +54,48 @@ function visibleList() {
   return list;
 }
 
-function render() {
+function render(opts = {}) {
   document.body.dataset.view = state.view;
   if (state.view === 'agenda') renderAgenda();
   else renderGrid();
+  if (opts.scroll !== false) requestAnimationFrame(() => scrollToNow(opts.smooth === true));
+}
+
+// --- Scroll auto vers aujourd'hui (ou le prochain event) ---
+
+function scrollToNow(smooth) {
+  const c = document.getElementById('groups-container');
+  if (!c) return;
+
+  // Tri autre que la date : l'ordre chronologique n'a plus de sens
+  if (state.view === 'grid' && state.sortBy !== 'date') {
+    c.scrollTop = 0;
+    return;
+  }
+
+  const target = c.querySelector('.today-mark')
+              || c.querySelector('.arow:not(.arow--past)')
+              || c.querySelector('.card:not(.card--past)');
+
+  const scrolls = c.scrollHeight > c.clientHeight + 4;
+
+  if (!target) {
+    if (scrolls) c.scrollTop = c.scrollHeight;
+    return;
+  }
+
+  const pad = state.view === 'grid' ? 68 : 10;
+  const behavior = smooth ? 'smooth' : 'auto';
+
+  if (scrolls) {
+    const top = target.getBoundingClientRect().top
+              - c.getBoundingClientRect().top
+              + c.scrollTop - pad;
+    c.scrollTo({ top: Math.max(0, top), behavior });
+  } else {
+    const top = target.getBoundingClientRect().top + window.scrollY - pad - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior });
+  }
 }
 
 function renderGrid() {
@@ -202,6 +240,13 @@ function renderControls() {
     });
     viewContainer.appendChild(btn);
   }
+
+  const jumpBtn = document.createElement('button');
+  jumpBtn.className   = 'btn-seg btn-jump';
+  jumpBtn.textContent = '⌖ Aujourd\u2019hui';
+  jumpBtn.title       = 'Revenir à la date du jour';
+  jumpBtn.addEventListener('click', () => scrollToNow(true));
+  viewContainer.parentElement.appendChild(jumpBtn);
 
   const sortContainer = document.getElementById('sort-btns');
   for (const [k, l] of [['date', 'Date'], ['price', 'Prix'], ['venue', 'Lieu'], ['style', 'Style']]) {
