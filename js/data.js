@@ -543,7 +543,7 @@ const DATA = [
     ticketUrl: "https://shop.c12space.com/1aafe827ce624dfc9a7fa204c61dd863",
     lineup: ["CEM (Herrensauna)", "VTT", "Stella K", "soft:machina"],
     text: "Édition Space Age : couleurs vives, formes rondes et conversation pits en fourrure. Portes 23h, 18+, in = in / out = out. 11 € en early bird les 10 premiers jours.",
-    image: "",
+    image: "images/call-of-dirty.jpg",
   },
 
   {
@@ -579,7 +579,7 @@ const DATA = [
     ticketUrl: "https://www.chaosinthecity.events/tickets",
     lineup: ["Amelie Lens", "Supporting acts TBA"],
     text: "Open air devant le Musée royal des Beaux-Arts d'Anvers. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/amelie-lens-kmska.jpg",
   },
 
   {
@@ -598,7 +598,7 @@ const DATA = [
     ticketUrl: "https://tickets.voodoovillage.be/",
     lineup: [],
     text: "Festival électronique en pleine nature, scènes déguisées. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/voodoo-village.jpg",
   },
 
   {
@@ -616,7 +616,7 @@ const DATA = [
     ticketUrl: "https://shop.paylogic.com/bad823ef8959466dba3c9066917cdf3f",
     lineup: ["21AM", "Bloody Louis", "Nashaz", "Fatma Soundsystem", "FEMMEBASS", "BIOME"],
     text: "3e édition : cinq open airs, un collectif par lieu, un festival pass pour circuler entre eux. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/boaf.jpg",
   },
 
   {
@@ -726,7 +726,7 @@ const DATA = [
     ticketUrl: "https://shop.raverebels.com/52d1436202b643718d15f2307af4623a",
     lineup: [],
     text: "La plus grosse rave indoor de Belgique, vendredi 6 et samedi 7 novembre. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/rave-rebels.webp",
   },
 
   {
