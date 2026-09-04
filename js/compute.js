@@ -19,6 +19,11 @@ function computeEvent(e, todayMid) {
     r.dateLong       = 'Date à confirmer';
     r.countdownLabel = 'À venir';
     r.badgeClass     = 'card__badge--past';
+    r.isPast         = false;
+    r.dayKey         = 'tbc';
+    r.dayLabel       = 'Date à confirmer';
+    r.timeLabel      = '';
+    r.spanLabel      = '';
     return r;
   }
 
@@ -37,6 +42,7 @@ function computeEvent(e, todayMid) {
 
   r.countdownLabel = badge.label;
   r.badgeClass     = badge.cls;
+  r.isPast         = diff < 0;
 
   const time = (e.timeStart && e.timeEnd) ? `${e.timeStart} › ${e.timeEnd}` : '';
 
@@ -52,6 +58,17 @@ function computeEvent(e, todayMid) {
   } else {
     r.frontDate = `${WD[d.getDay()].toUpperCase()} ${d.getDate()} ${MO[d.getMonth()].toUpperCase()}${time ? ' · ' + time : ''}`;
     r.dateLong  = `${WD[d.getDay()]} ${d.getDate()} ${MO[d.getMonth()]} 2026${time ? ' · ' + time : ''}`;
+  }
+
+  r.dayKey    = e.date;
+  r.dayLabel  = `${WD[d.getDay()]} ${d.getDate()} ${MO[d.getMonth()]}`;
+  r.timeLabel = e.timeStart ? (e.timeEnd ? `${e.timeStart} › ${e.timeEnd}` : e.timeStart) : '';
+
+  if (e.endDate) {
+    const d2 = new Date(e.endDate + 'T12:00');
+    r.spanLabel = `jusqu'au ${d2.getDate()} ${MO[d2.getMonth()]}`;
+  } else {
+    r.spanLabel = '';
   }
 
   return r;

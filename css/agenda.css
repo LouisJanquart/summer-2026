@@ -1,0 +1,265 @@
+/* ============================================================
+   AGENDA — vue par date, events passés, arbitrage
+   ============================================================ */
+
+/* --- Contrôles : Trier / Carte n'ont pas de sens en vue agenda --- */
+body[data-view="agenda"] .controls__group--grid-only { display: none; }
+
+/* --- Events passés (grille) --- */
+.card--past .card__inner {
+  filter: grayscale(1) brightness(0.62);
+  opacity: 0.55;
+  transition: filter 0.25s, opacity 0.25s;
+}
+
+.card--past:hover .card__inner,
+.card--past:focus-within .card__inner {
+  filter: grayscale(0.15) brightness(0.95);
+  opacity: 1;
+}
+
+.card--out .card__inner { opacity: 0.4; }
+
+.card { position: relative; }
+
+.card__ribbon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 3;
+  padding: 4px 9px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  pointer-events: none;
+}
+
+.card--out .card__ribbon {
+  background: #2a2a2a;
+  color: var(--color-text-dim);
+}
+
+/* --- Repère « aujourd'hui » --- */
+.today-mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: var(--space-xl) 0 var(--space-lg);
+}
+
+.today-mark::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-accent), transparent);
+}
+
+.today-mark span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 4px 10px;
+}
+
+/* --- Journée --- */
+.day { margin-bottom: var(--space-lg); }
+
+.day__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.day__date {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.day__rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.day__count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-faint);
+}
+
+.day__clash {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.day--clash .day__rows {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 12px;
+}
+
+.day--past .day__date  { color: var(--color-text-faint); }
+.day--past .day__clash { color: var(--color-text-faint); border-color: #333; }
+
+.day__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* --- Ligne d'event --- */
+.arow {
+  display: grid;
+  grid-template-columns: 110px 1fr auto auto;
+  gap: var(--space-md);
+  align-items: center;
+  padding: 14px var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-2);
+  transition: border-color 0.15s, background 0.15s, opacity 0.2s;
+}
+
+.arow:hover { border-color: #3a3a3a; background: var(--color-surface-2); }
+
+.arow--past { opacity: 0.45; filter: grayscale(1); }
+.arow--past:hover { opacity: 0.9; filter: grayscale(0.2); }
+
+.arow--in {
+  border-color: var(--color-accent);
+  box-shadow: inset 3px 0 0 var(--color-accent);
+}
+
+.arow--out { opacity: 0.35; }
+.arow--out:hover { opacity: 0.7; }
+
+.arow__time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.arow__span {
+  font-size: 10px;
+  color: var(--color-text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.arow__title {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.arow__meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-dim);
+  margin-top: 3px;
+}
+
+.arow__styles {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.arow__style {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  color: var(--color-text-faint);
+  border: 1px solid var(--color-border-3);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.arow__price {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.arow__actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.arow__btn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 6px 10px;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.arow__btn:hover { border-color: #555; color: var(--color-text); }
+
+.arow--in .arow__btn--in {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.arow--out .arow__btn--out {
+  background: #2a2a2a;
+  border-color: #3a3a3a;
+  color: var(--color-text);
+}
+
+.arow__link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.arow__link:hover { border-color: var(--color-accent); }
+.arow__link--none { color: var(--color-text-faint); pointer-events: none; }
+
+@media (max-width: 720px) {
+  .arow {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "time  price"
+      "main  main"
+      "act   act";
+    row-gap: 10px;
+  }
+  .arow__time    { grid-area: time; }
+  .arow__price   { grid-area: price; text-align: right; }
+  .arow__main    { grid-area: main; }
+  .arow__actions { grid-area: act; justify-content: flex-start; }
+}

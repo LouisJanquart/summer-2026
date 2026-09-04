@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/card.css">
+  <link rel="stylesheet" href="css/agenda.css">
 </head>
 <body>
 
@@ -26,7 +27,7 @@
       <div class="hero__meta">
         <div><span id="total-count" class="hero__meta-count"></span> événements</div>
         <div>Bruxelles · Gand · Knokke · +</div>
-        <div class="hero__meta-hint">cliquez une tuile › elle se retourne</div>
+        <div class="hero__meta-hint">cliquez une tuile › elle se retourne · vue « par date » pour trancher</div>
       </div>
     </div>
   </header>
@@ -35,10 +36,14 @@
 
     <div class="controls">
       <div class="controls__group">
+        <span class="controls__label" id="label-view">Vue</span>
+        <div class="btn-group" id="view-btns" role="group" aria-labelledby="label-view"></div>
+      </div>
+      <div class="controls__group controls__group--grid-only">
         <span class="controls__label" id="label-sort">Trier</span>
         <div class="btn-group" id="sort-btns" role="group" aria-labelledby="label-sort"></div>
       </div>
-      <div class="controls__group">
+      <div class="controls__group controls__group--grid-only">
         <span class="controls__label" id="label-skin">Carte</span>
         <div class="btn-group" id="skin-btns" role="group" aria-labelledby="label-skin"></div>
       </div>

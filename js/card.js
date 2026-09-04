@@ -116,9 +116,19 @@ function buildBack(e) {
     <div class="card-back__return">← Cliquer pour revenir</div>`;
 }
 
-function buildCard(e, skin) {
+function buildCard(e, skin, pick) {
   const wrap  = document.createElement('div');
-  wrap.className = 'card';
+  wrap.className = 'card'
+    + (e.isPast     ? ' card--past' : '')
+    + (pick === 'in'  ? ' card--in'  : '')
+    + (pick === 'out' ? ' card--out' : '');
+
+  if (pick) {
+    const ribbon = document.createElement('span');
+    ribbon.className   = 'card__ribbon';
+    ribbon.textContent = pick === 'in' ? '★ Je prends' : '✕ Écarté';
+    wrap.appendChild(ribbon);
+  }
 
   const inner = document.createElement('div');
   inner.className = 'card__inner';
