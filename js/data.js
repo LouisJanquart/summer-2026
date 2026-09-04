@@ -552,16 +552,16 @@ const DATA = [
     by: "Table Ronde 7 de Charleroi",
     date: "2026-09-24",
     timeStart: "19:07",
-    timeEnd: "",
-    venue: "Avenue Marius Meurée",
+    timeEnd: "02:00",
+    venue: "La Ruche — Théâtre Royal",
     city: "Charleroi",
     address: "Avenue Marius Meurée 1, 6001 Charleroi",
-    price: null,
+    price: 60.0,
     styles: [],
     ticketUrl: "https://www.facebook.com/events/1424577252862641/",
     lineup: [],
-    text: "Repéré sur Facebook (marqué « Intéressé·e »). Soirée caritative de la Table Ronde 7 : tables de jeu, la bonne cause gagne à tous les coups.",
-    image: "",
+    text: "Soirée caritative de la Table Ronde 7 : tables de jeu, repas inclus. Inscriptions par mail à charleroitr7@outlook.com.",
+    image: "images/soiree-casino.jpg",
   },
 
   {
@@ -632,9 +632,16 @@ const DATA = [
     price: null,
     styles: ["Open Air", "House"],
     ticketUrl: "https://shop.paylogic.com/13e9c7d3e75e4b82b21fb2c4197a04b8",
-    lineup: [],
+    lineup: [
+      "Secret Guest",
+      "DJIP",
+      "VEL",
+      "Disjoli b2b MZA",
+      "Hysope",
+      "Youké b2b Indri",
+    ],
     text: "8 heures d'open air : c'est l'un des cinq lieux du Brussels Open Air Festival, pas un event concurrent. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/biome-fabriek.jpg",
   },
 
   {
@@ -653,7 +660,7 @@ const DATA = [
     ticketUrl: "https://www.facebook.com/events/1257462223120520/",
     lineup: [],
     text: "24 heures de vélo sur le circuit de Chimay. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/24h-cycliste.jpg",
   },
 
   {
@@ -671,7 +678,7 @@ const DATA = [
     ticketUrl: "https://www.fuse.be/oct-02",
     lineup: ["The Ghost", "Gonno", "Penelope", "Nefeli"],
     text: "Room 01. Repéré sur Facebook (Intéressé·e).",
-    image: "",
+    image: "images/fuse-ghost-gonno.webp",
   },
 
   {
